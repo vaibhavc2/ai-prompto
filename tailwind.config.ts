@@ -12,7 +12,6 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   sans: ["Inter", ...fontFamily.sans],
-  // sans: ["var(--font-sans)", ...fontFamily.sans],
   theme: {
     container: {
       center: true,
@@ -23,6 +22,7 @@ const config: Config = {
     },
     extend: {
       colors: {
+        "primary-orange": "#ff5722",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
