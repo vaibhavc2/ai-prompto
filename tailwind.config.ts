@@ -11,7 +11,10 @@ const config: Config = {
     "./src/**/*.{ts,tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  sans: ["Inter", ...fontFamily.sans],
+  fontFamily: {
+    sans: ["var(--inter)", ...fontFamily.sans],
+    serif: ["var(--poppins)", ...fontFamily.sans],
+  },
   theme: {
     container: {
       center: true,

@@ -1,7 +1,9 @@
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Navbar } from "@/components/custom";
+import { AuthProvider, ThemeProvider } from "@/components/providers";
 import { Inter } from "@/fonts";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { Session } from "next-auth";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -25,15 +27,21 @@ export default function RootLayout({
         >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >
-            <div className="main">
-              <div className="gradient"></div>
+            <div className="main dark:bg-black dark:opacity-[12%]">
+              <div className="gradient block dark:hidden"></div>
+              <div className="dark:dark_gradient hidden dark:block"></div>
             </div>
 
-            <main className="app">{children}</main>
+            <AuthProvider session={{} as Session}>
+              <main className="app">
+                <Navbar />
+                {children}
+              </main>
+            </AuthProvider>
           </ThemeProvider>
         </body>
       </html>
